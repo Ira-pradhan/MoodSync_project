@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Music Player</title>
+    <!-- Link your existing CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- LOGIN SCREEN (Visible by default) -->
+    <div class="container" id="login-screen">
+        <h1>Moodsync</h1>
+        <h2>Welcome! User</h2>
+        <p>Please enter your name:</p>
+        <input type="text" id="username-input" placeholder="Your Name">
+        <button id="btn-login">Start Therapy</button>
+        <p id="login-error" style="color: red;"></p>
+    </div>
+
+    <!-- HOME SCREEN (Hidden initially) -->
+    <div class="container" id="home-screen" style="display: none;">
+        <h1>FACE<br>RECOGNITION</h1>
+        <p id="welcome-message" style="font-size: 1.2em; margin-bottom: 20px;"></p>
+        <div class="button-container">
+            <button id="btn-image-mode">Image</button>
+            <button id="btn-live-mode">Live Cam!</button>
+        </div>
+         <!-- Optional Logout Button -->
+         <button id="btn-logout" style="margin-top: 30px; background-color: #555;">Logout</button>
+    </div>
+
+    <!-- IMAGE MODE SCREEN (Hidden initially) -->
+    <div class="container" id="image-mode" style="display: none;">
+        <button class="btn-back" data-target="home-screen">< Back</button> <!-- Go back to home -->
+        <h1>Upload Image</h1>
+        <input type="file" id="image-upload-input" accept="image/*">
+        <button id="btn-submit-image">Submit!</button>
+        <p id="image-status"></p>
+    </div>
+
+    <!-- LIVE MODE SCREEN (Hidden initially) -->
+    <div class="container" id="live-mode" style="display: none;">
+        <button class="btn-back" data-target="home-screen">< Back</button> <!-- Go back to home -->
+        <h2>Live Face Detect</h2>
+        <div class="video-container">
+             <video id="live-video" width="640" height="480" autoplay playsinline></video>
+             <canvas id="live-canvas" width="640" height="480" style="display:none;"></canvas>
+        </div>
+        <button id="btn-start-camera">Start Camera</button>
+        <button id="btn-analyze-live" disabled>Analyze Emotion</button>
+        <button id="btn-stop-camera" style="display: none;">Stop Camera</button>
+        <p id="live-status"></p>
+    </div>
+
+    <!-- RESULT SCREEN (Hidden initially) -->
+       <!-- RESULT SCREEN (Modified Structure) -->
+    <div class="container result-container" id="result-screen" style="display: none;">
+        <button class="btn-back btn-back-result" data-target="home-screen">< Back</button> <!-- Unique class for specific styling -->
+        <h2 class="result-title">Analysis Result</h2>
+        <div class="emotion-display">
+            <span id="result-emoji" class="result-emoji">❓</span> <!-- Placeholder Emoji -->
+            <p id="result-emotion-name" class="result-emotion-name">Detecting...</p> <!-- Emotion Name -->
+        </div>
+        <p id="result-message" class="result-message-text"></p> <!-- The personalized message -->
+        <button id="btn-go-spotify" class="btn-spotify" style="display: none;">
+             <!-- Optional: Add Spotify Icon -->
+             <!-- <img src="{{ url_for('static', filename='images/spotify_icon.png') }}" alt="Spotify Icon" class="spotify-icon"> -->
+             Go to Therapy Playlist
+        </button>
+    </div>
+
+    <!-- Link your existing JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

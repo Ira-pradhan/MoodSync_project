@@ -1,0 +1,317 @@
+body {
+    font-family: sans-serif;
+    background-color: #0d1128; /* Dark blueish background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Hide scrollbars if background graphic is large */
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(19, 25, 58, 0.8); /* Slightly lighter transparent background */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative; /* Needed for absolute positioning of back button */
+}
+
+h1 {
+    color: #00d1ff; /* Bright blue */
+    font-size: 4em;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+.button-container button,
+#image-mode button,
+#live-mode button {
+    background-color: #8a2be2; /* Purple */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover,
+#image-mode button:hover,
+#live-mode button:hover:not(:disabled) {
+    background-color: #6a1eae; /* Darker purple */
+}
+
+#image-mode input[type="file"] {
+    display: block;
+    margin: 20px auto;
+    color: white;
+}
+
+/* Style the file input button */
+input[type="file"]::file-selector-button {
+    background-color: #00d1ff;
+    color: #0d1128;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+     background-color: #00aacc;
+}
+
+
+.video-container {
+    margin: 20px auto;
+    border: 2px solid #8a2be2;
+    display: inline-block; /* Keep container tight around video */
+     background-color: #000; /* Black background while loading */
+}
+
+#live-video {
+    display: block; /* Remove extra space below video */
+}
+
+
+p {
+    margin-top: 20px;
+    min-height: 1.5em; /* Reserve space for status messages */
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    font-size: 1em;
+    background-color: #444;
+}
+.btn-back:hover {
+     background-color: #666;
+}
+/* =================================== */
+/* === Login Screen Enhancements === */
+/* =================================== */
+
+#login-screen {
+    /* Use the container itself for styling if it doesn't conflict */
+    /* Or target #login-screen .container if .container has other uses */
+    background-color: rgba(25, 35, 69, 0.85); /* Slightly lighter, semi-transparent */
+    padding: 50px 40px; /* More vertical padding */
+    border-radius: 15px; /* Keep rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    max-width: 450px; /* Limit width */
+    width: 90%;
+    text-align: center;
+    /* Optional: Add backdrop blur for glassmorphism effect (check browser support) */
+    /* backdrop-filter: blur(5px); */
+}
+
+#login-screen h2 {
+    color: #ffffff; /* Brighter white title */
+    font-size: 2.5em; /* Larger title */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#login-screen p {
+    color: #cccccc; /* Light gray instructions */
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+#login-screen #username-input {
+    background-color: rgba(0, 0, 0, 0.3); /* Dark transparent background */
+    border: 1px solid #4b5a8a; /* Border color matching theme */
+    color: #ffffff; /* White text input */
+    padding: 12px 15px; /* Comfortable padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    font-size: 1em;
+    display: block; /* Take full width */
+    width: calc(100% - 32px); /* Adjust width considering padding+border */
+    margin: 0 auto 25px auto; /* Center with bottom margin */
+    box-sizing: border-box; /* Include padding/border in width calculation */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+#login-screen #username-input::placeholder {
+    color: #aaaaaa; /* Lighter placeholder text */
+}
+
+#login-screen #username-input:focus {
+    outline: none; /* Remove default browser outline */
+    border-color: #8a2be2; /* Highlight border on focus (purple) */
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Add glow on focus */
+}
+
+#login-screen #btn-login {
+    background: linear-gradient(90deg, #8a2be2, #6a1eae); /* Purple gradient */
+    color: white;
+    border: none;
+    padding: 12px 35px; /* Adjust padding */
+    border-radius: 25px; /* Keep pill shape */
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3); /* Subtle shadow matching color */
+    display: inline-block; /* Allow centering */
+}
+
+#login-screen #btn-login:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5); /* Enhanced shadow on hover */
+}
+
+#login-screen #btn-login:active {
+    transform: translateY(0px); /* Press down effect */
+    box-shadow: 0 2px 10px rgba(138, 43, 226, 0.4);
+}
+
+#login-screen #login-error {
+    color: #ff6b6b; /* More visible error color */
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 1em; /* Reserve space even when empty */
+}
+
+/* ================================== */
+/* === Result Screen Enhancements === */
+/* ================================== */
+
+/* Style the container for the result screen */
+.result-container {
+    background-color: rgba(19, 25, 58, 0.9); /* Dark blue, slightly less transparent */
+    padding: 30px 40px 40px 40px; /* Adjust padding */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    max-width: 500px; /* Control width */
+    width: 90%;
+    position: relative; /* For positioning back button */
+     /* Optional: Add backdrop blur */
+    /* backdrop-filter: blur(8px); */
+}
+
+/* Title Styling */
+.result-title {
+    color: #ffffff;
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separator line */
+    padding-bottom: 10px;
+}
+
+/* Centering the emotion display */
+.emotion-display {
+    margin-bottom: 20px;
+}
+
+/* Style the Emoji */
+.result-emoji {
+    font-size: 4.5em; /* Large emoji */
+    display: block; /* On its own line */
+    margin-bottom: 5px;
+    line-height: 1;
+     /* Optional: Add a subtle background highlight */
+     /* background-color: rgba(255, 255, 255, 0.05); */
+     /* display: inline-block; */
+     /* padding: 10px; */
+     /* border-radius: 50%; */
+}
+
+/* Style the Emotion Name */
+.result-emotion-name {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #00d1ff; /* Bright accent color */
+    margin-bottom: 20px;
+    text-transform: capitalize; /* Capitalize first letter */
+}
+
+/* Style the main message text */
+.result-message-text {
+    color: #cccccc; /* Light gray */
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Style the Spotify Button */
+.btn-spotify {
+    background: linear-gradient(90deg, #1DB954, #128a3e); /* Spotify green gradient */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+    display: inline-flex; /* Align icon and text if using */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline if it appears */
+}
+
+.btn-spotify:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.5);
+}
+
+.btn-spotify:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 10px rgba(29, 185, 84, 0.4);
+}
+
+/* Optional: Style for an icon inside the button */
+.spotify-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+
+/* Style the Back button specifically on this screen */
+.btn-back-result {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-back-result:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Ensure other containers are hidden initially */
+/* (Keep these rules if you don't have them elsewhere) */
+#login-screen, #home-screen, #image-mode, #live-mode {
+    display: none;
+}
+#result-screen:not([style*="display: none"]) { /* Style body only when result screen is potentially visible */
+    /* background: linear-gradient(135deg, #1e2a50, #131a4a); Darker gradient for result? */
+}
