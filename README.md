@@ -19,17 +19,23 @@ Built with Python, TensorFlow, Keras, OpenCV
 🛠 Tech Stack
 
 Python
+
 TensorFlow & Keras
+
 OpenCV
+
 NumPy, Pandas
+
 Spotify API (for playlist integration)
 
 
 🚀 How It Works
 
-1. Capture a live image using webcam.
-2. Detect facial emotion using the trained CNN model.
-3. Fetch a mood-appropriate playlist from Spotify based on the emotion and time.
+ Capture a live image using webcam.
+  
+ Detect facial emotion using the trained CNN model.
+  
+ Fetch a mood-appropriate playlist from Spotify based on the emotion and time.
 
 
 📁 Dataset
@@ -40,5 +46,7 @@ FER-2013 dataset (for facial emotion training)
 📌 Future Improvements
 
 Integrate voice-based emotion detection
+
 Add user feedback loop for better recommendations
+
 Mobile version with camera and Spotify support
